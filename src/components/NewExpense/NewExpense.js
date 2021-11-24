@@ -1,13 +1,12 @@
 import ExpenseForm from "./ExpenseForm";
 import "./NewExpense.css";
-const NewExpense = (perops) => {
+const NewExpense = (props) => {
   const addExpenseDataHandler = (enteredExpenseData) => {
     const expenseData = {
       ...enteredExpenseData,
       id: Math.random().toString(),
     };
-
-    perops.onAddExpense(expenseData);
+    props.onAddExpense(expenseData);
   };
   return (
     <div className="new-expense">

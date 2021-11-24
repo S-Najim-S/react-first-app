@@ -4,7 +4,7 @@ import "./ExpenseForm.css";
 const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
-  const [enteretDate, setEnteredDate] = useState("");
+  const [enteredDate, setEnteredDate] = useState("");
 
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
@@ -23,13 +23,15 @@ const ExpenseForm = (props) => {
     const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
-      date: enteretDate,
+      date: new Date(enteredDate),
     };
-
     props.onAddExpenseData(expenseData);
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");
+  };
+  const formToggleHandler = () => {
+    console.log("Hidden");
   };
 
   return (
@@ -61,13 +63,14 @@ const ExpenseForm = (props) => {
             type="date"
             min="2019-01-01"
             max="2023-12-31"
-            value={enteretDate}
+            value={enteredDate}
             onChange={DateChangeHandler}
           />
         </div>
       </div>
 
       <div className="new-expense__actions">
+        <button onClick={formToggleHandler}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>

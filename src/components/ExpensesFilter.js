@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-
 import "./ExpensesFilter.css";
 
 const ExpensesFilter = (props) => {
   const yearChangeHandler = (event) => {
-    const year = event.target.value;
-    props.onYearChang(year);
+    const resultyear = event.target.value;
+    props.onYearChang(resultyear);
+    console.log(props);
   };
 
   return (
